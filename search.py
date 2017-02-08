@@ -1,7 +1,8 @@
 from pymongo import MongoClient
+from pprint import pprint
 import csv
 
-server = MongoClient("149.89.150.100")
+server = MongoClient("127.0.0.1")
 db = server.coctoenigma
 students = db.students
 teachers = db.teachers
@@ -15,8 +16,9 @@ def getTeachers(dict):
         names = students.find({'courses.code' : k["code"] })
         #print names
         for a in names:
-            k["students"].append(a._id)
-            print "Hello"
+            k["students"].append(a['id'])
+            #pprint(a)
+            #pprint(k)
         teachers.insert_one(k)
     return
 

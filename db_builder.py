@@ -1,10 +1,10 @@
 from pymongo import MongoClient
+from pprint import pprint
 import csv
 
-server = MongoClient("149.89.150.100")
+server = MongoClient("127.0.0.1")
 db = server.coctoenigma
 students = db.students
-courses = db.courses
 
 d1 = csv.DictReader(open("peeps.csv"))
 d2 = csv.DictReader(open("courses.csv"))
@@ -25,5 +25,9 @@ def getStudents(peeps, courses):
     return
 
 getStudents(d1, d2)
+'''
 print students.count()
-print courses.count()
+cursor =  students.find()
+for doc in cursor:
+    pprint(doc)
+'''
