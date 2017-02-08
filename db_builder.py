@@ -12,12 +12,8 @@ d2 = csv.DictReader(open("courses.csv"))
 def getStudents(peeps, courses):
     studentList = {}
     for k in peeps:
-        studentList[k["id"]] = {
-            "name": k["name"],
-            "age": k["age"],
-            "id": k["id"],
-            "courses": []
-        }
+        k["courses"] = []
+        studentList[k["id"]] = k
     for k in courses:
         if k["id"] in studentList:
             studentList[k["id"]]["courses"].append({
