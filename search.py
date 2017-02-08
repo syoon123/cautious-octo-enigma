@@ -6,8 +6,7 @@ db = server.coctoenigma
 students = db.students
 teachers = db.teachers
 
-f1 = open("teachers.csv")
-d1 = csv.DictReader(f1)
+d1 = csv.DictReader(open("teachers.csv"))
 
 def getTeachers(dict):
     for k in dict:
